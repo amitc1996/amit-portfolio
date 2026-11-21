@@ -26,6 +26,22 @@ function getProjectGallery(projectId) {
   return raw;
 }
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+function withBase(path) {
+  if (!path) return "";
+  if (
+    path.startsWith("http://") ||
+    path.startsWith("https://") ||
+    path.startsWith("mailto:") ||
+    path.startsWith("tel:") ||
+    path.startsWith("#")
+  ) {
+    return path;
+  }
+  return `${basePath}${path.startsWith("/") ? "" : "/"}${path}`;
+}
+
 const navItems = [
   { id: "profile", label: "Profile" },
   { id: "skills", label: "Skills" },
@@ -365,7 +381,7 @@ function Header({ activeSection, menuOpen, scrolled, setMenuOpen }) {
           </nav>
           <a
             className="button-header-cv"
-            href="/Amit_Choudhary_Resume.pdf"
+            href={withBase("/Amit_Choudhary_Resume.pdf")}
             target="_blank"
             rel="noreferrer"
             download="Amit_Choudhary_Resume.pdf"
@@ -379,7 +395,7 @@ function Header({ activeSection, menuOpen, scrolled, setMenuOpen }) {
           </a>
           <a
             className="button-header-cv"
-            href="/Amit_Choudhary_Cover_Letter.pdf"
+            href={withBase("/Amit_Choudhary_Cover_Letter.pdf")}
             target="_blank"
             rel="noreferrer"
             download="Amit_Choudhary_Cover_Letter.pdf"
@@ -435,7 +451,7 @@ function Header({ activeSection, menuOpen, scrolled, setMenuOpen }) {
             <div className="mobile-menu-actions">
               <a
                 className="button button-secondary"
-                href="/Amit_Choudhary_Resume.pdf"
+                href={withBase("/Amit_Choudhary_Resume.pdf")}
                 target="_blank"
                 rel="noreferrer"
                 download="Amit_Choudhary_Resume.pdf"
@@ -448,7 +464,7 @@ function Header({ activeSection, menuOpen, scrolled, setMenuOpen }) {
               </a>
               <a
                 className="button button-secondary"
-                href="/Amit_Choudhary_Cover_Letter.pdf"
+                href={withBase("/Amit_Choudhary_Cover_Letter.pdf")}
                 target="_blank"
                 rel="noreferrer"
                 download="Amit_Choudhary_Cover_Letter.pdf"
@@ -593,7 +609,7 @@ function GalleryModal({ project, initialIndex = 0, onClose }) {
           <div className="gallery-stage">
             <div className="gallery-main-image-wrap">
               <img
-                src={currentImage.src}
+                src={withBase(currentImage.src)}
                 alt={currentImage.title || `${title} screenshot ${currentIndex + 1}`}
                 className="gallery-main-image"
               />
@@ -629,7 +645,7 @@ function GalleryModal({ project, initialIndex = 0, onClose }) {
                 onClick={() => setCurrentIndex(idx)}
                 aria-label={`View image ${idx + 1}: ${img.title || ""}`}
               >
-                <img src={img.src} alt="" />
+                <img src={withBase(img.src)} alt="" />
                 <span className="gallery-thumb-idx">{idx + 1}</span>
               </button>
             ))}
@@ -655,7 +671,7 @@ function ProjectCard({ project, onOpenGallery }) {
               aria-label={`View ${project.gallery.length} ${project.gallery.length === 1 ? "screenshot" : "screenshots"} for ${project.title}`}
             >
               <Image
-                src={project.image}
+                src={withBase(project.image)}
                 alt={project.imageAlt || project.title}
                 fill
                 sizes="(max-width: 760px) 100vw, 50vw"
@@ -672,7 +688,7 @@ function ProjectCard({ project, onOpenGallery }) {
             </button>
           ) : (
             <Image
-              src={project.image}
+              src={withBase(project.image)}
               alt={project.imageAlt || project.title}
               fill
               sizes="(max-width: 760px) 100vw, 50vw"
@@ -1292,7 +1308,7 @@ export default function Page() {
 
                   <a
                     className="channel-item"
-                    href="/Amit_Choudhary_Resume.pdf"
+                    href={withBase("/Amit_Choudhary_Resume.pdf")}
                     target="_blank"
                     rel="noreferrer"
                     download="Amit_Choudhary_Resume.pdf"
@@ -1314,7 +1330,7 @@ export default function Page() {
 
                   <a
                     className="channel-item"
-                    href="/Amit_Choudhary_Cover_Letter.pdf"
+                    href={withBase("/Amit_Choudhary_Cover_Letter.pdf")}
                     target="_blank"
                     rel="noreferrer"
                     download="Amit_Choudhary_Cover_Letter.pdf"
