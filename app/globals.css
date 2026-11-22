@@ -241,16 +241,36 @@ button:focus-visible {
 }
 
 .menu-button {
-  min-width: 58px;
-  min-height: 44px;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 0;
   display: none;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.04);
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 13px;
+  color: var(--text);
   cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.menu-button:hover,
+.menu-button:focus-visible {
+  background: rgba(48, 180, 140, 0.14);
+  border-color: var(--primary);
+  color: var(--primary-bright);
+}
+
+.menu-button svg {
+  display: block;
+  transition: transform 160ms ease;
+}
+
+.menu-button:hover svg {
+  transform: scale(1.08);
 }
 
 .mobile-menu-backdrop {
