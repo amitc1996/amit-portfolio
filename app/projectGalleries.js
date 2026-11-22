@@ -624,6 +624,38 @@ export const projectGalleries = {
       "caption": "Valuation of current inventory using FIFO accounting and slow-moving product flags."
     }
   ],
+  "universal-enterprises": [
+    {
+      "src": "/projects/universal-enterprises/ue-01-shipping-dashboard.png",
+      "title": "Aggregated Shipping Management Dashboard",
+      "caption": "Central dispatch overview with real-time consignment status, multi-carrier analytics, and volume tracking."
+    },
+    {
+      "src": "/projects/universal-enterprises/ue-02-create-shipment.png",
+      "title": "Multi-Carrier Shipment Creation & Booking",
+      "caption": "Package dimension calculation, customs documentation, sender/receiver validation, and instant airbill creation."
+    },
+    {
+      "src": "/projects/universal-enterprises/ue-03-rate-calculator.png",
+      "title": "Carrier Rate Comparison (DHL, FedEx, UPS)",
+      "caption": "Live API price aggregation comparing delivery speed, fuel surcharges, and estimated shipping costs across carriers."
+    },
+    {
+      "src": "/projects/universal-enterprises/ue-04-carrier-manifest.png",
+      "title": "Automated Dispatch & Carrier Manifests",
+      "caption": "Consolidated shipment manifests, bulk label printing, pickup scheduling, and barcode handoff documentation."
+    },
+    {
+      "src": "/projects/universal-enterprises/ue-05-tracking-details.png",
+      "title": "Live Tracking & Milestone Webhooks",
+      "caption": "Real-time shipment telemetry tracking in-transit milestones, customs clearance status, and proof of delivery."
+    },
+    {
+      "src": "/projects/universal-enterprises/ue-06-invoicing-billing.png",
+      "title": "Logistics Invoicing & Customer Billing",
+      "caption": "Automated freight invoice calculation, customer account statements, and accounting reconciliation."
+    }
+  ],
   "fit": [
     {
       "src": "/projects/fit/fit-01-leaderboard.jpg",

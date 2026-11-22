@@ -369,6 +369,25 @@ const productProjects = [
     ],
     tags: ["PHP", "Laravel", "REST APIs", "MySQL", "Mobile App Backend", "Workflows", "Safety Operations"],
   },
+  {
+    title: "Universal Enterprises",
+    categoryKeys: ["saas", "systems"],
+    categoryBadge: "Logistics & Shipping",
+    category: "Aggregated multi-carrier shipping management platform",
+    role: "Full Stack Developer",
+    context: "Original product screenshot",
+    image: "/projects/universal-enterprises/ue-01-shipping-dashboard.png",
+    imageAlt: "Universal Enterprises aggregated multi-carrier shipping management dashboard",
+    gallery: getProjectGallery("universal-enterprises"),
+    description:
+      "An aggregated logistics and shipping management system integrating DHL, FedEx, and UPS APIs to automate real-time rate comparison, label generation, dispatch manifests, and live tracking.",
+    highlights: [
+      "Integrated DHL Express, FedEx, and UPS REST/SOAP APIs for live rate calculation, automated label generation, and pickup scheduling.",
+      "Engineered multi-package shipment booking with automated weight/dimension volumetric pricing and customs documentation.",
+      "Built real-time tracking pipeline with carrier webhook updates, automated customer delivery receipts, and invoice reconciliation.",
+    ],
+    tags: ["PHP", "Laravel", "MySQL", "DHL API", "FedEx API", "UPS API", "Logistics", "REST APIs", "Invoicing"],
+  },
 ];
 
 const projectFilterCategories = [
