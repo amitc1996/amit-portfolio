@@ -312,6 +312,63 @@ const productProjects = [
     ],
     tags: ["PHP", "MySQL", "Maps", "Data modelling", "Reporting"],
   },
+  {
+    title: "POS / COID",
+    categoryKeys: ["saas"],
+    categoryBadge: "Enterprise POS",
+    category: "Sales, purchasing and inventory management",
+    role: "Full Stack Developer · JustAddWater",
+    context: "Original product screenshot",
+    image: "/projects/pos-coid/coid-01-add-sale.png",
+    imageAlt: "POS / COID cashier and sales terminal interface",
+    gallery: getProjectGallery("pos-coid"),
+    description:
+      "A retail and wholesale point-of-sale platform managing rapid cashier checkout, multi-warehouse inventory levels, supplier purchasing and margin reporting.",
+    highlights: [
+      "Built high-throughput cashier terminal with barcode scanning, split payments and instant receipt generation.",
+      "Engineered real-time stock ledger with low-stock alerts, reorder thresholds and purchase order reconciliation.",
+      "Delivered profit/loss reporting, cashier turnover analytics and FIFO inventory valuation.",
+    ],
+    tags: ["PHP", "Laravel", "MySQL", "Inventory", "POS", "Reporting", "REST APIs"],
+  },
+  {
+    title: "Zuma Juice",
+    categoryKeys: ["saas", "marketplace-data"],
+    categoryBadge: "E-Commerce",
+    category: "E-commerce & direct-to-consumer store",
+    role: "Full Stack Developer · JustAddWater",
+    context: "Original product screenshot",
+    image: "/projects/zuma-juice/zuma-01-home.png",
+    imageAlt: "Zuma Juice direct-to-consumer storefront and organic juice catalog",
+    gallery: getProjectGallery("zuma-juice"),
+    description:
+      "A direct-to-consumer e-commerce platform and subscription store for organic cold-pressed juices, featuring dynamic box builders and checkout analytics.",
+    highlights: [
+      "Delivered responsive e-commerce storefront with custom box selection, subscription orders and customer accounts.",
+      "Built administration dashboard with sales funnel conversion analytics, recurring revenue tracking and order fulfillment queues.",
+      "Integrated Stripe recurring billing, automated order receipts and carrier shipping label workflows.",
+    ],
+    tags: ["PHP", "Laravel", "MySQL", "E-Commerce", "Stripe", "Subscriptions", "Analytics"],
+  },
+  {
+    title: "Zona / CircuitHelp",
+    categoryKeys: ["saas", "systems"],
+    categoryBadge: "Field Service & Safety",
+    category: "Field service & safety management (Web & Mobile)",
+    role: "Full Stack Developer · JustAddWater",
+    context: "Original product screenshot",
+    image: "/projects/zona/zona-01-dashboard.jpg",
+    imageAlt: "Zona field service operations dashboard and safety alert system",
+    gallery: getProjectGallery("zona"),
+    description:
+      "A dual web and mobile safety management system enabling field technicians and facility managers to log incidents, automate dispatch and broadcast hazard alerts.",
+    highlights: [
+      "Built real-time safety monitoring console broadcasting incident alerts, site warnings and compliance workflows.",
+      "Engineered searchable ticket dispatch queue with technician assignment, geolocation logging and photo attachments.",
+      "Developed companion mobile experience with offline caching, push notifications and biometric authentication.",
+    ],
+    tags: ["PHP", "Laravel", "REST APIs", "MySQL", "Mobile App Backend", "Workflows", "Safety Operations"],
+  },
 ];
 
 const projectFilterCategories = [
@@ -325,9 +382,6 @@ const projectFilterCategories = [
 const allProjects = [...platformProjects, ...productProjects];
 
 const additionalWork = [
-  { name: "POS / COID", detail: "Sales, purchasing and inventory", gallery: getProjectGallery("pos-coid") },
-  { name: "Zuma Juice", detail: "E-commerce & direct-to-consumer store", gallery: getProjectGallery("zuma-juice") },
-  { name: "Zona / CircuitHelp", detail: "Field service & safety management (Web & Mobile)", gallery: getProjectGallery("zona") },
   { name: "FFRAT" },
   { name: "PlanInsta" },
   { name: "Haldibaan" },
