@@ -363,7 +363,8 @@ function Header({ activeSection, menuOpen, scrolled, setMenuOpen }) {
           <span className="brand-mark" aria-hidden="true">AC</span>
           <span className="brand-copy">
             <strong>AMIT CHOUDHARY</strong>
-            <small>Senior Software Developer | Full Stack Development</small>
+            <small className="brand-subtitle-full">Senior Software Developer | Full Stack</small>
+            <small className="brand-subtitle-short">Senior Developer</small>
           </span>
         </a>
 
@@ -518,6 +519,33 @@ function GalleryModal({ project, initialIndex = 0, onClose }) {
   const images = project?.gallery || [];
   const currentImage = images[currentIndex] || images[0];
   const thumbRefs = useRef([]);
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
+
+  const handleTouchStart = (e) => {
+    if (e.touches && e.touches.length === 1) {
+      touchStartX.current = e.touches[0].clientX;
+      touchStartY.current = e.touches[0].clientY;
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const diffX = endX - touchStartX.current;
+    const diffY = endY - touchStartY.current;
+
+    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX < 0) {
+        setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+      } else {
+        setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+      }
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
 
   useEffect(() => {
     setCurrentIndex(initialIndex);
@@ -594,7 +622,11 @@ function GalleryModal({ project, initialIndex = 0, onClose }) {
           </div>
         </div>
 
-        <div className="gallery-viewer">
+        <div
+          className="gallery-viewer"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           {images.length > 1 && (
             <button
               type="button"
