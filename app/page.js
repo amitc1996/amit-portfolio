@@ -401,6 +401,21 @@ const projectFilterCategories = [
 const allProjects = [...platformProjects, ...productProjects];
 
 const additionalWork = [
+  {
+    name: "eCubed / Meridian",
+    detail: "Learning management system & corporate training",
+    gallery: getProjectGallery("ecubed-meridian"),
+  },
+  {
+    name: "FIT Assessment Platform",
+    detail: "Candidate evaluation & skills leaderboard",
+    gallery: getProjectGallery("fit"),
+  },
+  {
+    name: "OlookBook",
+    detail: "E-commerce product catalog & ordering",
+    gallery: getProjectGallery("olookbook"),
+  },
   { name: "FFRAT" },
   { name: "PlanInsta" },
   { name: "Haldibaan" },
@@ -1269,8 +1284,8 @@ export default function Page() {
             <div className="additional-work panel reveal">
               <div className="additional-work-intro">
                 <p className="card-eyebrow">Additional product work</p>
-                <h3>The complete additional project list from the résumé.</h3>
-                <p>More delivered work across commerce, training, field operations, assessment and administration. Projects with screenshots are clickable to view their galleries.</p>
+                <h3>Other Delivered Projects & Portals</h3>
+                <p>More delivered work across commerce, training, field operations, and assessment. Projects with available screenshots can be opened to view their galleries.</p>
               </div>
               <ul className="archive-grid" aria-label="Additional projects">
                 {additionalWork.map((item) => (
