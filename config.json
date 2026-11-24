@@ -1,20 +1,7 @@
 {
   "screenshots": {
-    "defaultLimit": 4,
+    "defaultLimit": "all",
     "description": "Set defaultLimit to 'all' to show all screenshots, or a number (e.g. 3, 4, 5) to limit how many screenshots are shown. You can also override specific projects in projectLimits.",
-    "projectLimits": {
-      "draas": 3,
-      "convertio": 3,
-      "convertio-classic": 1,
-      "dr-power": 3,
-      "kpip": 4,
-      "fp-leads": 4,
-      "needgr8r": 4,
-      "parkdb": 4,
-      "pos-coid": 3,
-      "zuma-juice": 3,
-      "zona": 3,
-      "universal-enterprises": 3
-    }
+    "projectLimits": {}
   }
 }
