@@ -6,6 +6,13 @@ import { projectGalleries } from "./projectGalleries";
 import portfolioConfig from "../config.json";
 
 function getProjectGallery(projectId) {
+  if (
+    portfolioConfig?.screenshots?.hideTake2Images &&
+    ["draas", "convertio", "convertio-classic", "dr-power"].includes(projectId)
+  ) {
+    return [];
+  }
+
   const raw = projectGalleries[projectId];
   if (!raw || !Array.isArray(raw)) return [];
 
@@ -137,6 +144,8 @@ const experiences = [
   },
 ];
 
+const hideTake2Images = Boolean(portfolioConfig?.screenshots?.hideTake2Images);
+
 const platformProjects = [
   {
     title: "DRaaS",
@@ -145,9 +154,12 @@ const platformProjects = [
     category: "Kubernetes-native disaster recovery for VMware",
     role: "Full Stack Developer · PrimaryIO",
     context: "Enterprise platform",
-    image: "/projects/draas/draas-01-dashboard.png",
+    image: hideTake2Images ? null : "/projects/draas/draas-01-dashboard.png",
     imageAlt: "DRaaS VMware disaster recovery dashboard with replication metrics",
-    gallery: getProjectGallery("draas"),
+    gallery: hideTake2Images ? [] : getProjectGallery("draas"),
+    imageMark: "DR",
+    placeholderTitle: "Enterprise DRaaS",
+    placeholderSubtitle: "Kubernetes & VMware Platform",
     description:
       "A multi-tenant disaster-recovery platform coordinating protected workloads, recovery points, failovers and infrastructure operations.",
     highlights: [
@@ -164,9 +176,12 @@ const platformProjects = [
     category: "VMware to IBM Cloud migration platform",
     role: "Full Stack Developer · PrimaryIO",
     context: "Enterprise platform",
-    image: "/projects/convertio/convertio-01.png",
+    image: hideTake2Images ? null : "/projects/convertio/convertio-01.png",
     imageAlt: "ConvertIO migration wizard and discovery overview",
-    gallery: getProjectGallery("convertio"),
+    gallery: hideTake2Images ? [] : getProjectGallery("convertio"),
+    imageMark: "CIO",
+    placeholderTitle: "Cloud Migration",
+    placeholderSubtitle: "VMware to IBM Cloud VPC",
     description:
       "A guided migration product that moves virtual machines through discovery, configuration, synchronisation and cutover into IBM Cloud VPC.",
     highlights: [
@@ -183,9 +198,12 @@ const platformProjects = [
     category: "IBM Classic Infrastructure to VPC migration",
     role: "UI Developer · PrimaryIO",
     context: "Enterprise platform",
-    image: "/projects/convertio-classic/classic-01.png",
+    image: hideTake2Images ? null : "/projects/convertio-classic/classic-01.png",
     imageAlt: "ConvertIO Classic IBM Classic to VPC migration console",
-    gallery: getProjectGallery("convertio-classic"),
+    gallery: hideTake2Images ? [] : getProjectGallery("convertio-classic"),
+    imageMark: "CC",
+    placeholderTitle: "Classic Migration",
+    placeholderSubtitle: "IBM Classic to VPC Migration",
     description:
       "A Next.js migration interface for configuring, validating and monitoring batch moves from IBM Classic VSIs to VPC.",
     highlights: [
@@ -202,9 +220,12 @@ const platformProjects = [
     category: "IBM Power disaster-recovery console",
     role: "UI Developer · PrimaryIO",
     context: "Enterprise platform",
-    image: "/projects/dr-power/dr-power-01.png",
+    image: hideTake2Images ? null : "/projects/dr-power/dr-power-01.png",
     imageAlt: "DR Power IBM PowerHA disaster recovery console",
-    gallery: getProjectGallery("dr-power"),
+    gallery: hideTake2Images ? [] : getProjectGallery("dr-power"),
+    imageMark: "PWR",
+    placeholderTitle: "PowerHA Console",
+    placeholderSubtitle: "IBM Power Disaster Recovery",
     description:
       "A focused web console for operating disaster recovery across IBM i and PowerHA environments through a central API gateway.",
     highlights: [
@@ -852,10 +873,10 @@ function ProjectCard({ project, onOpenGallery }) {
             role="img"
             aria-label={`${project.title} project image placeholder`}
           >
-            <span className="project-placeholder-mark" aria-hidden="true">{project.imageMark}</span>
+            <span className="project-placeholder-mark" aria-hidden="true">{project.imageMark || "SYS"}</span>
             <span className="project-placeholder-copy">
-              <strong>Project architecture</strong>
-              <small>System in progress</small>
+              <strong>{project.placeholderTitle || "Project architecture"}</strong>
+              <small>{project.placeholderSubtitle || project.context || "System in progress"}</small>
             </span>
           </div>
         )}
